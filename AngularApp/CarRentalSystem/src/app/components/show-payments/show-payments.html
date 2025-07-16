@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="mb-3">All Payments</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Payment ID</th>
+        <th>Amount</th>
+        <th>Method</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Booking ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pay of payment">
+        <td>{{ pay.id }}</td>
+        <td>{{ pay.amount }}</td>
+        <td>{{ pay.paymentMethod }}</td>
+        <td>{{ pay.paymentTime }}</td>
+        <td>{{ pay.status }}</td>
+        <td>{{ pay.booking?.id }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!payment || payment.length === 0" class="alert alert-info">
+    No payments found.
+  </div>
+</div>

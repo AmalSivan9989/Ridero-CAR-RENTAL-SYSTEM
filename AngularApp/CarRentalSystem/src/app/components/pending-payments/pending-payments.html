@@ -1,0 +1,54 @@
+<h2 class="page-title">Pending Payments</h2>
+
+<div *ngIf="pendingPayments.length > 0; else noPayments" class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Pickup Location</th>
+        <th>Dropoff Location</th>
+        <th>Car Model</th>
+        <th>Status</th>
+        <th>Make Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of pendingPayments">
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.pickupLocation }}</td>
+        <td>{{ booking.dropoffLocation }}</td>
+        <td>{{ booking.car.model }}</td>
+        <td>{{ booking.status }}</td>
+        <td>
+         <form #payForm="ngForm" (ngSubmit)="makePayment(booking.id, booking.car.pricePerDay, payForm)">
+  <div class="amount-display">
+    Amount: ₹{{ booking.car.pricePerDay }}
+  </div>
+
+  <div class="payment-options">
+    <label class="payment-option">
+      <input type="radio" name="paymentMode" ngModel value="CARD" required />
+      <img src="https://icm.aexp-static.com/Internet/internationalcardshop/en_in/images/cards/platinumCarddec.png" alt="Card" />
+    </label>
+    <label class="payment-option">
+      <input type="radio" name="paymentMode" ngModel value="UPI" required />
+      <img src="https://www.psuconnect.in/sdsdsd/UPI_is_free_fast_secure_and_seamless.jpg" alt="UPI" />
+    </label>
+    <label class="payment-option">
+      <input type="radio" name="paymentMode" ngModel value="NETBANKING" required />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRecjRFd-nuM73vNDVGdSfJWq4MIQIwTGxbw&s" alt="Net Banking" />
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="payForm.invalid">Pay</button>
+</form>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noPayments>
+  <p>No pending payments found.</p>
+</ng-template>

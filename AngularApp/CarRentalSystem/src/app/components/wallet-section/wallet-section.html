@@ -1,0 +1,61 @@
+<div class="wallet-container">
+  <h2>My Wallet</h2>
+
+
+  <div *ngIf="balance === -1">
+    <p>Loading wallet details...</p>
+  </div>
+
+
+  <div *ngIf="walletExists">
+    <div class="balance-display">
+      <label>Current Balance:</label>
+      <span class="amount">₹{{ balance }}</span>
+    </div>
+
+    <form #addForm="ngForm" class="add-form">
+      <input
+        type="number"
+        name="amount"
+        [(ngModel)]="amountToAdd"
+        min="1"
+        placeholder="Enter amount to add"
+        required
+      />
+
+      <div class="payment-methods">
+        <button type="button" (click)="addFunds('CARD', addForm)">
+          <img
+            src="https://icm.aexp-static.com/Internet/internationalcardshop/en_in/images/cards/platinumCarddec.png"
+            alt="Card"
+            title="Add with Card"
+          />
+        </button>
+
+        <button type="button" (click)="addFunds('UPI', addForm)">
+          <img
+            src="https://www.psuconnect.in/sdsdsd/UPI_is_free_fast_secure_and_seamless.jpg"
+            alt="UPI"
+            title="Add with UPI"
+          />
+        </button>
+
+        <button type="button" (click)="addFunds('NETBANKING', addForm)">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRecjRFd-nuM73vNDVGdSfJWq4MIQIwTGxbw&s"
+            alt="Net Banking"
+            title="Add with Net Banking"
+          />
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Show if wallet does not exist -->
+  <div *ngIf="!walletExists && balance !== -1" class="create-wallet-prompt">
+    <p>Your wallet is not found.</p>
+    <button type="button" (click)="createWallet()">Create Wallet</button>
+  </div>
+
+  <p class="status-msg" *ngIf="message">{{ message }}</p>
+</div>

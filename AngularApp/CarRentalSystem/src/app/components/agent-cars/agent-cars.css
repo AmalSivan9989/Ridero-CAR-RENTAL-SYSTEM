@@ -1,0 +1,248 @@
+.cars-container {
+  max-width: 1200px;
+  margin: 0px auto 50px;
+  padding: 30px;
+  background: rgba(64, 224, 208, 0.1); 
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(64, 224, 208, 0.3); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #004d40; 
+}
+
+.cars-container h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #008080; 
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px #fff,
+    0 0 10px #b2fefa,
+    1px 1px 3px rgba(0, 128, 128, 0.4);
+}
+
+.add-car-form {
+  background: white;
+  border-radius: 14px;
+  padding: 25px 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 18px rgba(0, 150, 136, 0.2);
+}
+
+.add-car-form h3 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #00796b;
+  font-weight: 700;
+  border-bottom: 2px solid #009688; 
+  padding-bottom: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px 30px;
+  margin-bottom: 20px;
+}
+
+.form-grid label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #00796b;
+}
+
+.form-grid input[type="text"],
+.form-grid input[type="number"],
+.form-grid select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #009688;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.form-grid input[type="text"]:focus,
+.form-grid input[type="number"]:focus,
+.form-grid select:focus {
+  border-color: #00796b;
+}
+
+.checkbox-container {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #00796b;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #009688;
+}
+
+.add-car-form button[type="submit"] {
+  background: linear-gradient(90deg, #009688 0%, #00796b 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 150, 136, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+.add-car-form button[type="submit"]:hover {
+  background: linear-gradient(90deg, #00796b 0%, #009688 100%);
+  transform: translateY(-3px);
+}
+
+.result-msg {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #004d40;
+  min-height: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 150, 136, 0.2);
+  overflow: hidden;
+  font-size: 1rem;
+  color: #004d40;
+}
+
+thead tr {
+  background: linear-gradient(90deg, #009688 0%, #00796b 100%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+}
+
+thead th {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+tbody tr {
+  background: #e0f2f1; 
+  transition: background 0.3s ease;
+  cursor: default;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 150, 136, 0.1);
+}
+
+tbody tr:hover {
+  background: #b2dfdb; 
+}
+
+tbody td {
+  padding: 14px 18px;
+  vertical-align: middle;
+}
+
+tbody button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+  font-size: 0.9rem;
+  color: white;
+}
+
+tbody button:first-child {
+  background: #00796b;
+  margin-right: 10px;
+}
+
+tbody button:first-child:hover {
+  background: #009688;
+  transform: scale(1.05);
+}
+
+tbody button:last-child {
+  background: #d81b60; 
+}
+
+tbody button:last-child:hover {
+  background: #ad1457;
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkbox-container {
+    grid-column: span 1;
+  }
+
+  table,
+  thead tr,
+  tbody tr,
+  tbody td,
+  tbody th {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 18px;
+    background: #e0f2f1;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  tbody td {
+    padding: 10px 12px;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    font-size: 0.95rem;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #00796b;
+    font-size: 0.85rem;
+  }
+
+  tbody td button {
+    width: 48%;
+    margin-bottom: 8px;
+  }
+
+  tbody td:last-child {
+    text-align: center;
+  }
+}

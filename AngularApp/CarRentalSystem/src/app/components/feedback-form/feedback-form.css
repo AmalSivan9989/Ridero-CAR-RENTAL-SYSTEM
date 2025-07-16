@@ -1,0 +1,127 @@
+.feedback-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 128, 96, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.feedback-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #007f5f;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 3px rgba(0, 109, 91, 0.3);
+}
+
+
+.feedback-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #004d3f;
+}
+
+
+.feedback-container textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #38b2ac;
+  border-radius: 8px;
+  background-color: rgba(56, 178, 172, 0.08);
+  resize: vertical;
+  color: #004d3f;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.feedback-container textarea:focus {
+  border-color: #007f5f;
+  background-color: rgba(56, 178, 172, 0.15);
+  outline: none;
+}
+
+
+.feedback-container select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #38b2ac;
+  border-radius: 8px;
+  background-color: rgba(56, 178, 172, 0.08);
+  color: #004d3f;
+  margin-bottom: 25px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.feedback-container select:focus {
+  border-color: #007f5f;
+  background-color: rgba(56, 178, 172, 0.15);
+  outline: none;
+}
+
+
+.feedback-container button[type='submit'] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #00332a;
+  background-color: #2ff3e0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(47, 243, 224, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-container button[type='submit']:hover {
+  background-color: #26e4d2;
+  box-shadow: 0 6px 16px rgba(47, 243, 224, 0.5);
+}
+
+.feedback-container button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+  box-shadow: none;
+}
+
+
+.feedback-container .message {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  color: #007f5f;
+  font-weight: 600;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.star-rating {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.star {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.star:hover,
+.star.filled,
+.star:hover ~ .star {
+  color: #2ff3e0; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

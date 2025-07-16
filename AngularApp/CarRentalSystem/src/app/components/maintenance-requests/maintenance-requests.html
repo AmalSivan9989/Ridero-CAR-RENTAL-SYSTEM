@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Maintenance Requests</h2>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+
+  <table *ngIf="requests.length > 0" border="1" cellpadding="10" cellspacing="0" style="width:100%; margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created On</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requests">
+        <td>{{ req.id }}</td>
+        <td>{{ req.issueDescription }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.requestDate | date:'medium' }}</td>
+        <td>
+          <div *ngIf="req.car; else noCarInfo">
+            {{ req.car.make }} {{ req.car.model }}<br />
+            <small>{{ req.car.type }}, {{ req.car.location }}</small>
+          </div>
+          <ng-template #noCarInfo>
+            <small>No car info available</small>
+          </ng-template>
+        </td>
+        <td>
+          <button *ngIf="!req.agent" (click)="assignToMe(req.id)" [disabled]="loading" style="margin-bottom: 6px;">
+            Assign to me
+          </button>
+
+          <button *ngIf="req.agent?.uid === agentId" (click)="closeRequest(req.id)" [disabled]="req.status?.toUpperCase() === 'CLOSED' || loading">
+            Close Request
+          </button>
+
+          <span *ngIf="req.agent && req.agent.uid !== agentId" style="color: #555; font-style: italic;">
+            Assigned to another agent
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && requests.length === 0" style="text-align:center; margin-top: 20px;">
+    No maintenance requests found.
+  </div>
+</div>

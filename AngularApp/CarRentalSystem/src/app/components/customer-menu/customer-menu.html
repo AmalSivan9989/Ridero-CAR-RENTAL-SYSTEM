@@ -1,0 +1,18 @@
+
+<div class="sidebar">
+  <p class="menu-title">Customer Menu</p>
+
+  <a [routerLink]="['/customerMenu/showCarsByLocation']" class="menu-link">Search Cars</a>
+  <a (click)="goToBooking()" class="menu-link">Create Booking</a>
+  <a [routerLink]="['/customerMenu/pendingPayments']" class="menu-link">Pending Payments</a>
+  <a [routerLink]="['/customerMenu/paymentHistory']" class="menu-link">Payment History</a>
+  <a [routerLink]="['/customerMenu/myBookings']" class="menu-link">My Bookings</a>
+  <a [routerLink]="['/customerMenu/wallet']" class="menu-link">Wallet</a>
+
+  <button class="logout" (click)="logout()">Logout</button>
+</div>
+
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

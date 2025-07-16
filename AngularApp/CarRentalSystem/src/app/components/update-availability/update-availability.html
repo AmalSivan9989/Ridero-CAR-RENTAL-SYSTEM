@@ -1,0 +1,59 @@
+<div class="container">
+  <h2 class="page-title">🚗 Update Car Availability</h2>
+
+  
+  <p class="result-msg" *ngIf="result">{{ result }}</p>
+
+ 
+  <table class="car-table" *ngIf="cars?.length > 0">
+    <thead>
+      <tr>
+        <th>Car ID</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Price (₹/day)</th>
+        <th>Status</th>
+        <th>Image</th>
+        <th>Availability</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.id }}</td>
+        <td>{{ car.make }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.location }}</td>
+        <td>{{ car.type }}</td>
+        <td>₹{{ car.pricePerDay }}</td>
+        <td>{{ car.status }}</td>
+        
+      
+        <td class="image-cell">
+          <img *ngIf="car.imageUrl; else noImage" [src]="car.imageUrl" class="car-image" alt="{{ car.model }}" />
+          <ng-template #noImage>
+            <span class="no-image">No Image</span>
+          </ng-template>
+        </td>
+
+       
+        <td>
+          <select [(ngModel)]="car.available" aria-label="Select availability">
+            <option [value]="true">Available</option>
+            <option [value]="false">Unavailable</option>
+          </select>
+        </td>
+
+       
+        <td>
+          <button (click)="updateAvailabilityForCar(car)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+ 
+  <p class="result-msg" *ngIf="cars?.length === 0">No cars found.</p>
+</div>

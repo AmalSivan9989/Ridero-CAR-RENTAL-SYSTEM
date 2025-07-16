@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>My Bookings</h2>
+
+  <table *ngIf="bookings.length > 0" class="bookings-table">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Pickup</th>
+        <th>Dropoff</th>
+        <th>Car</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <td>{{ booking.id }}</td>
+
+        <td>
+          <strong>Location:</strong> {{ booking.pickupLocation }}<br />
+          <strong>Date:</strong> {{ booking.pickupDate | date:'short' }}
+        </td>
+
+        <td>
+          <strong>Location:</strong> {{ booking.dropoffLocation }}<br />
+          <strong>Date:</strong> {{ booking.dropoffDate | date:'short' }}
+        </td>
+
+        <td>
+          {{ booking.car.make }} {{ booking.car.model }}<br />
+          ₹{{ booking.car.pricePerDay }} / day
+        </td>
+
+        <td>
+          <span
+            [ngClass]="{
+              'status-booked': booking.status === 'BOOKED',
+              'status-completed': booking.status === 'COMPLETED'
+            }"
+          >
+            {{ booking.status }}
+          </span>
+        </td>
+
+        <td>
+         
+         <button
+  *ngIf="booking.status === 'CHECKED_IN' || booking.status === 'BOOKED'"
+  (click)="checkOut(booking.id, booking.car.id)"
+  class="btn-checkout"
+>
+  Check Out
+</button>
+
+        
+          <span *ngIf="booking.status === 'COMPLETED'">Feedback Submitted</span>
+
+       
+          <span *ngIf="booking.status !== 'BOOKED' && booking.status !== 'COMPLETED'"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="bookings.length === 0" class="no-bookings">No bookings found.</p>
+</div>

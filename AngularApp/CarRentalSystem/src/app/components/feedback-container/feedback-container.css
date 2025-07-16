@@ -1,0 +1,111 @@
+.feedback-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f7fb;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(101, 40, 139, 0.1);
+  color: #333;
+}
+
+.feedback-container h2 {
+  color: #6a1b9a;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(106, 27, 154, 0.1);
+}
+
+thead {
+  background: linear-gradient(90deg, #ab47bc 0%, #6a1b9a 100%);
+}
+
+thead th {
+  color: white;
+  padding: 12px 15px;
+  font-weight: 600;
+  text-align: left;
+}
+
+tbody td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+tbody tr:hover {
+  background-color: #f3e8ff;
+  cursor: pointer;
+}
+
+button {
+  background-color: #8e24aa;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6a1b9a;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .feedback-container {
+    padding: 10px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+  }
+
+  tbody td {
+    padding: 10px 0;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    padding-left: 15px;
+    font-weight: 700;
+    text-align: left;
+    color: #6a1b9a;
+  }
+}

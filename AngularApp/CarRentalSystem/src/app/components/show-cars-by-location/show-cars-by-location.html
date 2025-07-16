@@ -1,0 +1,116 @@
+<div class="container">
+  <h2 class="page-title">Show Cars By Location</h2>
+
+  <div class="search-bar">
+    <label for="location" class="location-label">Enter Location:</label>
+    <input
+      type="text"
+      id="location"
+      [(ngModel)]="location"
+      placeholder="Enter location here"
+      class="location-input"
+    />
+    <button (click)="fetchCars(location)" class="btn-primary">Get Cars</button>
+  </div>
+
+  <hr />
+
+
+  <div *ngIf="cars.length > 0 && viewMode === 'table'" class="table-wrapper">
+    <table class="cars-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Location</th>
+          <th>Type</th>
+          <th>Image</th>
+          <th>Price Per Day</th>
+          <th>Available</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td>{{ car.id }}</td>
+          <td>{{ car.make }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.location }}</td>
+          <td>{{ car.type }}</td>
+          <td class="image-cell">
+            <img
+              *ngIf="car.imageUrl; else noImageTable"
+              [src]="car.imageUrl"
+              alt="{{ car.model }}"
+              class="car-image"
+            />
+            <ng-template #noImageTable>
+              <span class="no-image">No Image</span>
+            </ng-template>
+          </td>
+          <td>₹{{ car.pricePerDay }}</td>
+          <td>
+            <span [class.available]="car.available" [class.unavailable]="!car.available">
+              {{ car.available ? 'Yes' : 'No' }}
+            </span>
+          </td>
+          <td>{{ car.status }}</td>
+          <td>
+            <button
+              *ngIf="car.available"
+              (click)="bookCar(car.id)"
+              class="btn-book"
+            >
+              Book Now
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div *ngIf="cars.length > 0 && viewMode === 'cards'" class="cards-container">
+    <div *ngFor="let car of cars" class="car-card">
+      <img
+        *ngIf="car.imageUrl; else noImageCard"
+        [src]="car.imageUrl"
+        alt="{{ car.model }}"
+      />
+      <ng-template #noImageCard>
+        <div class="no-image">No Image Available</div>
+      </ng-template>
+
+      <h3>{{ car.make }} {{ car.model }}</h3>
+
+      <div
+        class="availability"
+        [ngClass]="{ available: car.available, unavailable: !car.available }"
+      >
+        {{ car.available ? 'Available' : 'Unavailable' }}
+      </div>
+
+      <div class="price">₹{{ car.pricePerDay }} / day</div>
+
+      <button
+        class="btn-book"
+        [disabled]="!car.available"
+        (click)="bookCar(car.id)"
+      >
+        Book Now
+      </button>
+    </div>
+  </div>
+
+  <p *ngIf="cars.length === 0 && location" class="no-results">
+    No cars found for this location.
+  </p>
+
+
+  <div style="text-align:center; margin-top:20px;">
+    <button (click)="viewMode='table'" [disabled]="viewMode==='table'" class="btn-primary">Table View</button>
+    <button (click)="viewMode='cards'" [disabled]="viewMode==='cards'" class="btn-primary">Card View</button>
+  </div>
+</div>

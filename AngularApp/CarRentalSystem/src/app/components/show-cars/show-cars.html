@@ -1,0 +1,37 @@
+<p class="page-title">Cars</p>
+
+<table class="car-table" align="center">
+  <thead>
+    <tr>
+      <th>Car Id</th>
+      <th>Car Name</th>
+      <th>Car Model</th>
+      <th>Location</th>
+      <th>Car Type</th>
+      <th>Car Image</th>
+      <th>Price Per Day (₹)</th>
+      <th>Availability</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of cars">
+      <td>{{ c.id }}</td>
+      <td>{{ c.make }}</td>
+      <td>{{ c.model }}</td>
+      <td>{{ c.location }}</td>
+      <td>{{ c.type }}</td>
+      <td class="image-cell">
+        <img *ngIf="c.imageUrl; else noImage" [src]="c.imageUrl" alt="{{c.model}}" class="car-image" />
+        <ng-template #noImage><span class="no-image">No Image</span></ng-template>
+      </td>
+      <td>₹{{ c.pricePerDay }}</td>
+      <td>
+        <span [class.available]="c.available" [class.unavailable]="!c.available">
+          {{ c.available ? 'Available' : 'Unavailable' }}
+        </span>
+      </td>
+      <td>{{ c.status }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,99 @@
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 128, 96, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #006d5b;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 109, 91, 0.3);
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.bookings-table th {
+  background: linear-gradient(135deg, #007f5f, #38b2ac);
+  color: #ffffff;
+  padding: 14px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.bookings-table td {
+  padding: 14px 16px;
+  text-align: center;
+  vertical-align: top;
+  border-bottom: 1px solid #e1e1e1;
+  font-size: 0.95rem;
+  color: #004d3f;
+}
+
+.bookings-table tr:nth-child(even) {
+  background-color: #f1fdfa;
+}
+
+.bookings-table tr:hover {
+  background-color: #d1f6eb;
+  transition: background-color 0.3s ease;
+}
+
+
+.status-booked {
+  background-color: #ffb74d;
+  color: #5d3c00;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.status-completed {
+  background-color: #a5d6a7;
+  color: #1b5e20;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+
+.btn-checkout {
+  background-color: #2ff3e0;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  color: #00332a;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(47, 243, 224, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background-color: #26e4d2;
+  box-shadow: 0 6px 14px rgba(47, 243, 224, 0.5);
+}
+
+
+.no-bookings {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 30px;
+  font-style: italic;
+}

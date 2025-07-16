@@ -1,0 +1,32 @@
+<div class="header">
+  <p class="menu-title">Admin Menu</p>
+
+  <div class="nav-links">
+    <a [routerLink]="['/adminMenu/manageUsers']">Users</a>
+    <a [routerLink]="['/adminMenu/showBookings']">Bookings</a>
+    <a [routerLink]="['/adminMenu/cars']">Cars</a>
+
+    <!-- Feedback Button -->
+    <a [routerLink]="['/adminMenu/feedbackContainer']">Feedback</a>
+
+    <!-- Maintenance Sliding Sidebar Trigger -->
+    <button class="dropbtn" (click)="openMaintenance()">Maintenance</button>
+
+    <!-- Reports button -->
+    <button (click)="goToReport()">📊 Reports</button>
+
+    <!-- Logout button -->
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- Maintenance Sliding Sidebar -->
+<div id="maintenanceSidebar" class="maintenance-sidebar">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeMaintenance()">&times;</a>
+  <a [routerLink]="['/adminMenu/reportIssue']">Report Issue</a>
+  <a [routerLink]="['/adminMenu/viewAgentRequests']">View Agent Requests</a>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,54 @@
+<p style="text-align:center; font-weight:bold; font-size:1.2rem;">Bookings </p>
+
+<table class="booking-table" align="center">
+  <thead>
+    <tr>
+      <th>Booking Id</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Total Amount</th>
+      <th>Car Model</th>
+      <th>User Name</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <ng-container *ngFor="let booking of bookings; let i = index">
+      <tr (click)="toggleDetails(i)" [class.expanded]="expandedIndex === i" class="main-row">
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.pickupDate | date:'mediumDate' }}</td>
+        <td>{{ booking.dropoffDate | date:'mediumDate' }}</td>
+        <td>₹{{ booking.totalAmount }}</td>
+        <td>{{ booking.car.model }}</td>
+        <td>{{ booking.user.name }}</td>
+        <td><button class="details-btn" (click)="$event.stopPropagation(); toggleDetails(i)">{{ expandedIndex === i ? 'Hide' : 'View' }}</button></td>
+      </tr>
+
+      <tr *ngIf="expandedIndex === i" class="detail-row">
+        <td colspan="7">
+          <div class="details-container">
+            <div class="car-details">
+              <h4>Car Details</h4>
+              <p><strong>Car Id:</strong> {{ booking.car.id }}</p>
+              <p><strong>Make:</strong> {{ booking.car.make }}</p>
+              <p><strong>Model:</strong> {{ booking.car.model }}</p>
+              <p><strong>Type:</strong> {{ booking.car.type }}</p>
+              <p><strong>Price/Day:</strong> ₹{{ booking.car.pricePerDay }}</p>
+              <p><strong>Status:</strong> {{ booking.car.status }}</p>
+              <img [src]="booking.car.imageUrl" alt="Car Image" />
+            </div>
+            <div class="user-details">
+              <h4>User Details</h4>
+              <p><strong>User Id:</strong> {{ booking.user.uid }}</p>
+              <p><strong>Name:</strong> {{ booking.user.name }}</p>
+              <p><strong>Email:</strong> {{ booking.user.email }}</p>
+              <p><strong>Roles:</strong> {{ booking.user.roles }}</p>
+              <p><strong>Active:</strong> {{ booking.user.active }}</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

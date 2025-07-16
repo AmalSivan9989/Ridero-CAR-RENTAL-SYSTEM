@@ -1,0 +1,146 @@
+
+p {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #6a1b9a;
+  text-align: center;
+  margin: 40px 0 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 8px #e6e6fa,
+    1px 1px 3px rgba(138, 43, 226, 0.5);
+}
+
+
+.booking-table {
+  width: 95%;
+  margin: 0 auto 50px auto;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 25px rgba(106, 27, 154, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  color: #3b0057;
+  font-size: 1rem;
+}
+
+
+.booking-table thead tr {
+  background: linear-gradient(90deg, #ab47bc 0%, #6a1b9a 100%);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.95rem;
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 14px 18px;
+  vertical-align: middle;
+  user-select: none;
+}
+
+
+.booking-table tbody tr.main-row {
+  background: #f5f0fa;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.booking-table tbody tr.main-row:hover {
+  background: rgba(171, 71, 188, 0.25);
+}
+
+
+.booking-table tbody tr.detail-row {
+  background: #ede6fc;
+}
+
+.booking-table tbody tr.detail-row td {
+  padding: 20px 30px;
+  border-top: 2px solid #ab47bc;
+}
+
+
+.details-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  color: #3b0057;
+}
+
+.details-container h4 {
+  color: #6a1b9a;
+  margin-bottom: 12px;
+  font-weight: 700;
+  
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 2px rgba(138, 43, 226, 0.3);
+}
+
+
+.car-details,
+.user-details {
+  flex: 1 1 300px;
+  background: white;
+  padding: 20px 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(138, 43, 226, 0.1);
+  font-size: 0.95rem;
+}
+
+.car-details img {
+  margin-top: 15px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.25);
+  display: block;
+  object-fit: cover;
+}
+
+
+.details-btn {
+  background: linear-gradient(90deg, #d81b60 0%, #8e24aa 100%);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.details-btn:hover {
+  background: linear-gradient(90deg, #c2185b 0%, #6a1b9a 100%);
+  transform: translateY(-2px);
+}
+
+
+.booking-table tbody tr.main-row.expanded {
+  box-shadow: 0 0 12px 2px rgba(171, 71, 188, 0.6);
+  background: rgba(171, 71, 188, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .details-container {
+    flex-direction: column;
+  }
+
+  .car-details,
+  .user-details {
+    flex: 1 1 100%;
+  }
+
+  .booking-table th,
+  .booking-table td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
+}

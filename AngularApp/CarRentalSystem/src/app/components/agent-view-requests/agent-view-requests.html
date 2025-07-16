@@ -1,0 +1,38 @@
+<div class="agent-container">
+  <h2>Agent Maintenance Requests</h2>
+
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <table *ngIf="requests.length > 0; else noRequests">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Car ID</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requests">
+        <td>{{ req.id }}</td>
+        <td>{{ req.car?.id }}</td>
+        <td>{{ req.issueDescription }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.requestDate | date: 'short' }}</td>
+        <td>
+          <button *ngIf="req.status !== 'CLOSED'" (click)="closeRequest(req.id)">
+            Close Request
+          </button>
+          <span *ngIf="req.status === 'CLOSED'" class="closed-label">Closed</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noRequests>
+    <p>No maintenance requests assigned.</p>
+  </ng-template>
+</div>
+

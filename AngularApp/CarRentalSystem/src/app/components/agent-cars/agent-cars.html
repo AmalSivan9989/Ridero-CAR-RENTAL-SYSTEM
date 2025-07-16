@@ -1,0 +1,91 @@
+<div class="cars-container">
+  <h2>Manage Cars</h2>
+
+  <form #carForm="ngForm" (ngSubmit)="addCar(carForm)" class="add-car-form">
+    <h3>Add New Car</h3>
+
+    <div class="form-grid">
+      <div>
+        <label>Brand</label>
+        <input type="text" name="make" required [(ngModel)]="car.make" placeholder="Enter brand" />
+      </div>
+
+      <div>
+        <label>Model</label>
+        <input type="text" name="model" required [(ngModel)]="car.model" placeholder="Enter model" />
+      </div>
+
+      <div>
+        <label>Location</label>
+        <input type="text" name="location" required [(ngModel)]="car.location" placeholder="Enter location" />
+      </div>
+
+      <div>
+        <label>Type</label>
+        <input type="text" name="type" required [(ngModel)]="car.type" placeholder="Enter type" />
+      </div>
+
+      <div>
+        <label>Image URL</label>
+        <input type="text" name="imageUrl" required [(ngModel)]="car.imageUrl" placeholder="Enter image URL" />
+      </div>
+
+      <div>
+        <label>Price Per Day</label>
+        <input type="number" name="pricePerDay" required [(ngModel)]="car.pricePerDay" placeholder="Enter price per day" />
+      </div>
+
+      <div>
+        <label>Status</label>
+        <select name="status" required [(ngModel)]="car.status">
+          <option [ngValue]="null">Select Status</option>
+          <option *ngFor="let s of carStatuses" [ngValue]="s">{{ s }}</option>
+        </select>
+      </div>
+
+      <div class="checkbox-container">
+        <label>
+          Available
+          <input type="checkbox" [(ngModel)]="car.available" name="available">
+        </label>
+      </div>
+    </div>
+
+    <button type="submit">Add Car</button>
+    <p class="result-msg">{{ result }}</p>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Price/Day</th>
+        <th>Available</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.id }}</td>
+        <td>{{ car.make }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.location }}</td>
+        <td>{{ car.type }}</td>
+        <td>₹{{ car.pricePerDay }}</td>
+        <td>{{ car.available ? 'Yes' : 'No' }}</td>
+        <td>{{ car.status }}</td>
+        <td>
+          <button (click)="updateAvailability(car.id, !car.available)">
+            {{ car.available ? 'Set Unavailable' : 'Set Available' }}
+          </button>
+          <button (click)="deleteCar(car.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

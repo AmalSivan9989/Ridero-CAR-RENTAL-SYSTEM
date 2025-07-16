@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #e1bee7, #ba68c8);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.token-container {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(106, 27, 154, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(225, 190, 231, 0.3);
+  padding: 30px 40px;
+  width: 350px;
+  color: #f3e5f5;
+  text-align: left;
+}
+
+.token-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.token-container h2 i {
+  margin-right: 10px;
+  color: #ffd54f;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px 12px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #4a148c;
+  font-weight: 500;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #6a1b9a;
+  opacity: 0.7;
+}
+
+input[type="button"] {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #8e24aa, #6a1b9a);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+input[type="button"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #6a1b9a;
+}
+
+hr {
+  margin: 20px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+b {
+  word-wrap: break-word;
+  display: block;
+  color: #fce4ec;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 400px) {
+  .token-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+.bottom-right-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;       
+  width: auto;        
+  padding: 6px 12px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #d1c4e9, #9575cd);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  white-space: nowrap; 
+ display: inline-block;
+  max-width: 150px;       
+  height: auto;         
+  white-space: nowrap;     
+  box-sizing: border-box;  
+}
+
+.bottom-right-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #9575cd;
+}

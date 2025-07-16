@@ -1,0 +1,51 @@
+<div class="token-container">
+  <h2><i class="fas fa-user"></i> Agent Login</h2>
+
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="username"
+      required
+      #usernameField="ngModel"
+      autocomplete="username"
+      placeholder="Enter your username"
+    />
+    <div *ngIf="usernameField.invalid && loginForm.submitted">
+      Username is required.
+    </div>
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+      #passwordField="ngModel"
+      autocomplete="current-password"
+      placeholder="Enter your password"
+    />
+    <div *ngIf="passwordField.invalid && loginForm.submitted">
+      Password is required.
+    </div>
+
+    <input type="submit" value="Login" />
+  </form>
+
+  <hr />
+
+  <div *ngIf="jwt">
+    <p><strong>JWT Token:</strong> {{ jwt }}</p>
+  </div>
+
+  <div *ngIf="customerFound">
+    <p><strong>Agent ID:</strong> {{ customerFound.uid }}</p>
+    <p><strong>Agent Name:</strong> {{ customerFound.name }}</p>
+  </div>
+</div>
+ <input type="button" value="Back" (click)="goBack()" class="bottom-right-button" />
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

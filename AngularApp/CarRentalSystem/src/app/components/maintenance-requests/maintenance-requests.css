@@ -1,0 +1,169 @@
+body, :host {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #AFEEEE, #E0FFFF);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(64, 224, 208, 0.3);
+  padding: 40px 50px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.container h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #008B8B;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+
+.loading, .error, .success {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.loading {
+  color: #008B8B;
+}
+
+.error {
+  color: #d9534f;
+}
+
+.success {
+  color: #3c763d;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(64, 224, 208, 0.2);
+}
+
+thead tr {
+  background: linear-gradient(90deg, #40E0D0 0%, #20B2AA 100%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+thead th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 700;
+}
+
+tbody tr {
+  background: #f0fdfa;
+  transition: background 0.3s ease;
+  cursor: default;
+}
+
+tbody tr:hover {
+  background: #e0f7f4;
+}
+
+tbody td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  border-bottom: 1px solid #e0f2f1;
+  color: #333;
+}
+
+tbody td small {
+  color: #555;
+  font-size: 0.85rem;
+}
+
+button {
+  background: #40E0D0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  min-width: 120px;
+  text-align: center;
+}
+
+button:hover:not(:disabled) {
+  background: #20B2AA;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(64, 224, 208, 0.15);
+    padding: 12px;
+  }
+
+  tbody td {
+    padding: 10px;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    font-size: 0.95rem;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #008B8B;
+    font-size: 0.85rem;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+    min-width: unset;
+  }
+}

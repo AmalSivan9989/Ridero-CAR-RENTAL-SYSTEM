@@ -1,0 +1,87 @@
+.agent-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #e0f7f7; /* light turquoise background */
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(64, 224, 208, 0.4); /* turquoise shadow */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.agent-container h2 {
+  text-align: center;
+  color: #008080; /* teal heading */
+  margin-bottom: 20px;
+}
+
+.message {
+  text-align: center;
+  background: #00bfa5; /* strong turquoise */
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background: #00bfa5; /* turquoise header */
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+tr:hover {
+  background: #f1fafa; /* light turquoise hover */
+}
+
+button {
+  background: #00bfa5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #00897b; /* darker turquoise on hover */
+}
+
+.closed-label {
+  color: #999;
+  font-style: italic;
+}
+
+p {
+  text-align: center;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .agent-container {
+    padding: 20px;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    padding: 6px 10px;
+  }
+}

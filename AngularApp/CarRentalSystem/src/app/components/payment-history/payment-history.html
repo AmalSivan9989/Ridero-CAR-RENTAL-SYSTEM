@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="page-title">Payment History</h2>
+
+  <table *ngIf="paymentHistory.length > 0" class="payment-table">
+    <thead>
+      <tr>
+        <th>Payment ID</th>
+        <th>Amount</th>
+        <th>Method</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Booking Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of paymentHistory">
+        <td>{{ p.id }}</td>
+        <td>₹{{ p.amount }}</td>
+        <td>{{ p.paymentMethod }}</td>
+        <td>{{ p.paymentTime | date: 'medium' }}</td>
+        <td>{{ p.status }}</td>
+        <td>
+          <div>
+            <strong>Pickup:</strong> {{ p.booking?.pickupLocation }}<br>
+            <strong>Dropoff:</strong> {{ p.booking?.dropoffLocation }}<br>
+            <strong>Car:</strong> {{ p.booking?.car?.make }} {{ p.booking?.car?.model }}<br>
+            <img *ngIf="p.booking?.car?.imageUrl" [src]="p.booking.car.imageUrl" alt="Car Image" width="120">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="paymentHistory.length === 0">No payment history found.</p>
+</div>

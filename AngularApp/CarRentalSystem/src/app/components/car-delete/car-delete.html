@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <h2>Car List</h2>
+
+  <div *ngIf="message" class="alert alert-info">
+    {{ message }}
+  </div>
+
+  <table class="table table-bordered table-striped align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Model</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.id }}</td>
+        <td style="width: 100px;">
+          <img 
+            *ngIf="car.imageUrl; else noImage" 
+            [src]="car.imageUrl" 
+            alt="{{ car.model }}" 
+            style="max-width: 80px; max-height: 50px; object-fit: cover; border-radius: 5px; border: 1px solid #ccc;"
+          />
+          <ng-template #noImage>
+            <span class="text-muted small">No Image</span>
+          </ng-template>
+        </td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.make }}</td>
+        <td>₹{{ car.pricePerDay }}</td>
+        <td>
+          <button (click)="deleteCar(car.id)" class="btn btn-danger btn-sm">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

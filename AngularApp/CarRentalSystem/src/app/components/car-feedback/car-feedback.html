@@ -1,0 +1,38 @@
+<div class="car-feedback-container">
+  <h2>Feedback for Car ID: {{ carId }}</h2>
+
+  <p *ngIf="message" class="error">{{ message }}</p>
+
+  <div *ngIf="feedbacks.length > 0; else noFeedback">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Comment</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fb of feedbacks">
+          <td>{{ fb.id }}</td>
+          <td>{{ fb.user?.username }}</td>
+          <td>{{ fb.comment }}</td>
+          <td>
+            <span [ngClass]="{
+              'rating-high': fb.rating >= 4,
+              'rating-medium': fb.rating == 3,
+              'rating-low': fb.rating <= 2
+            }">
+              {{ fb.rating }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noFeedback>
+    <p>No feedback available for this car.</p>
+  </ng-template>
+</div>

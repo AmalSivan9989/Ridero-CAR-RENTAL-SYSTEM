@@ -1,0 +1,62 @@
+.container {
+  margin: 30px auto;
+  max-width: 960px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 109, 91, 0.1);
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+}
+
+.payment-table th {
+  background: linear-gradient(135deg, #007f5f, #38b2ac);
+  color: white;
+  padding: 14px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.payment-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e1e1e1;
+  color: #004d3f;
+}
+
+.payment-table tr:nth-child(even) {
+  background-color: #f1fdfa;
+}
+
+.payment-table tr:hover {
+  background-color: #d1f6eb;
+  transition: background-color 0.3s ease;
+}
+
+img {
+  border-radius: 8px;
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.15);
+  transition: transform 0.2s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+
+.image-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

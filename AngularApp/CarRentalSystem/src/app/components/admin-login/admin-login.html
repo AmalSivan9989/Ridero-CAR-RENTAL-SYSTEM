@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="./admin-login.css"> 
+</head>
+<body>
+  <div class="token-container">
+    <h2><i class="fas fa-key"></i> Admin Login</h2>
+
+    User Name : 
+    <input type="text" name="userName" [(ngModel)]="userName" /> 
+    <br/><br/>
+
+    Password : 
+    <input type="password" name="passWord" [(ngModel)]="passWord" />
+    <br/><br/>
+
+    <input type="button" value="Login" (click)="generate()" />
+    <hr/>
+    
+    <b>{{jwt}}</b>
+  </div>
+
+
+  <input type="button" value="Back" (click)="goBack()" class="bottom-right-button" />
+  
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

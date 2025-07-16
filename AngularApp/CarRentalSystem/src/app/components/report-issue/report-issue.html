@@ -1,0 +1,48 @@
+<div class="container">
+  <h2 class="page-title">🚗 Report Maintenance Issues</h2>
+
+  <p *ngIf="message" class="result-msg">{{ message }}</p>
+
+  <table class="car-table" *ngIf="cars?.length > 0">
+    <thead>
+      <tr>
+        <th>Car ID</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Location</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let car of cars">
+        <tr>
+          <td>{{ car.id }}</td>
+          <td>{{ car.make }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.location }}</td>
+          <td class="image-cell">
+            <img *ngIf="car.imageUrl; else noImage" [src]="car.imageUrl" alt="Car image" class="car-image" />
+            <ng-template #noImage><span class="no-image">No Image</span></ng-template>
+          </td>
+          <td>
+            <button (click)="toggleDescriptionBox(car.id)">
+              {{ selectedCarId === car.id ? 'Cancel' : 'Report Issue' }}
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="selectedCarId === car.id">
+          <td colspan="6">
+            <input
+              type="text"
+              [(ngModel)]="description"
+              placeholder="Describe the issue..."
+              class="issue-input"
+            />
+            <button (click)="submitIssue(car.id)" [disabled]="!description.trim()">Submit</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

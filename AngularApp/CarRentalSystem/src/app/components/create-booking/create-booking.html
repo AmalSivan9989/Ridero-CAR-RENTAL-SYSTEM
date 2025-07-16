@@ -1,0 +1,35 @@
+<h2 style="text-align: center; color: #007f5f;">Create Booking</h2>
+
+<div class="booking-container">
+  <form #form="ngForm" (ngSubmit)="createBooking(form)">
+    <label>Pickup Date:</label>
+    <input type="datetime-local" [(ngModel)]="pickupDate" name="pickupDate" required />
+
+    <label>Dropoff Date:</label>
+    <input type="datetime-local" [(ngModel)]="dropoffDate" name="dropoffDate" required />
+
+    <label>Pickup Location:</label>
+    <input
+      type="text"
+      [(ngModel)]="pickupLocation"
+      name="pickupLocation"
+      (blur)="updateMap()"
+      required
+    />
+
+    <label>Dropoff Location:</label>
+    <input
+      type="text"
+      [(ngModel)]="dropoffLocation"
+      name="dropoffLocation"
+      (blur)="updateMap()"
+      required
+    />
+
+    <button type="submit">Create Booking</button>
+  </form>
+
+  <div class="map-container">
+    <div id="map" style="height: 400px; width: 100%; border-radius: 12px; border: 2px solid #007f5f;"></div>
+  </div>
+</div>

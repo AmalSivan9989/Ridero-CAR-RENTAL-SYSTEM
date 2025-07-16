@@ -1,0 +1,61 @@
+<div class="background-overlay">
+ 
+
+  <div class="register-container">
+    <h2>Create Your Account</h2>
+
+   <form (ngSubmit)="register()" #regForm="ngForm" novalidate>
+
+  <label for="name">Full Name</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    [(ngModel)]="user.name"
+    required
+    minlength="3"
+    #name="ngModel"
+  />
+  <div class="error" *ngIf="name.invalid && name.touched">
+    Full Name is required (min 3 characters).
+  </div>
+
+  <label for="email">Email</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    [(ngModel)]="user.email"
+    required
+    email
+    #email="ngModel"
+  />
+  <div class="error" *ngIf="email.invalid && email.touched">
+    Valid email is required.
+  </div>
+
+  <label for="password">Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    [(ngModel)]="user.password"
+    required
+    minlength="6"
+    #password="ngModel"
+  />
+  <div class="error" *ngIf="password.invalid && password.touched">
+    Password is required (min 6 characters).
+  </div>
+
+  <button type="submit" [disabled]="regForm.invalid || isLoading">
+    {{ isLoading ? 'Registering...' : 'Register' }}
+  </button>
+</form>
+
+
+    <div class="spinner" *ngIf="isLoading"></div>
+
+    <p class="message" *ngIf="message">{{ message }}</p>
+  </div>
+</div>

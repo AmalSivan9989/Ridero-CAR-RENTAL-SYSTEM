@@ -1,0 +1,42 @@
+<div class="section">
+  <h2>Maintenance Requests</h2>
+
+  <div class="form-group">
+    <label for="agentSelect">Select Agent:</label>
+    <select id="agentSelect" [(ngModel)]="selectedAgentId" (change)="onAgentChange()">
+      <option [ngValue]="null" disabled selected>-- Choose Agent --</option>
+      <option *ngFor="let agent of agents" [ngValue]="agent.uid">
+        {{ agent.username }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="requests.length > 0; else noData">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Car</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let req of requests">
+          <td>{{ req.id }}</td>
+          <td>{{ req.car?.make }} {{ req.car?.model }}</td>
+          <td>{{ req.issueDescription }}</td>
+          <td>{{ req.status }}</td>
+          <td>{{ req.requestDate | date: 'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noData>
+    <p *ngIf="selectedAgentId">No maintenance requests for this agent.</p>
+  </ng-template>
+
+  <p class="error" *ngIf="message">{{ message }}</p>
+</div>

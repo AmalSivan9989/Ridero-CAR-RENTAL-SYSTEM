@@ -1,0 +1,47 @@
+<div class="container">
+  <h2 class="page-title">🚘 Add New Car</h2>
+
+  <form #carForm="ngForm" (ngSubmit)="addCar(carForm)" class="form-card">
+ 
+    <label>Car Make</label>
+    <input type="text" name="make" required [(ngModel)]="car.make" #make="ngModel" placeholder="Enter Car Make" />
+    <div *ngIf="make.invalid && carForm.submitted" class="error-msg">Please enter Car Make.</div>
+
+   
+    <label>Car Model</label>
+    <input type="text" name="model" required [(ngModel)]="car.model" #model="ngModel" placeholder="Enter Car Model" />
+    <div *ngIf="model.invalid && carForm.submitted" class="error-msg">Please enter Car Model.</div>
+
+    
+    <label>Car Location</label>
+    <input type="text" name="location" required [(ngModel)]="car.location" #location="ngModel" placeholder="Enter Car Location" />
+    <div *ngIf="location.invalid && carForm.submitted" class="error-msg">Please enter Car Location.</div>
+
+   
+    <label>Car Type</label>
+    <input type="text" name="type" required [(ngModel)]="car.type" #type="ngModel" placeholder="Enter Car Type" />
+    <div *ngIf="type.invalid && carForm.submitted" class="error-msg">Please enter Car Type.</div>
+
+   
+    <label>Car Image URL</label>
+    <input type="text" name="imageUrl" required [(ngModel)]="car.imageUrl" #imageUrl="ngModel" placeholder="Enter Image URL" />
+    <div *ngIf="imageUrl.invalid && carForm.submitted" class="error-msg">Please enter Car Image URL.</div>
+
+ 
+    <label>Price Per Day</label>
+    <input type="number" name="pricePerDay" required [(ngModel)]="car.pricePerDay" #pricePerDay="ngModel" placeholder="Enter Price Per Day" />
+    <div *ngIf="pricePerDay.invalid && carForm.submitted" class="error-msg">Please enter Price Per Day.</div>
+
+
+    <label>Car Status</label>
+    <select name="status" required [(ngModel)]="car.status" #status="ngModel">
+      <option [ngValue]="null">Select Status</option>
+      <option *ngFor="let s of carStatuses" [ngValue]="s">{{ s }}</option>
+    </select>
+    <div *ngIf="status.invalid && carForm.submitted" class="error-msg">Please select Car Status.</div>
+
+    <button type="submit">Add Car</button>
+  </form>
+
+  <p class="result-msg">{{ result }}</p>
+</div>

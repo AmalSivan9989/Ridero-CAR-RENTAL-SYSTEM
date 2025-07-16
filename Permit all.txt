@@ -1,0 +1,123 @@
+Permit all:
+
+GET:  localhost:2003/auth/generateToken
+
+Admin:
+
+{
+    "username":"john",
+    "password":"john123"
+}
+
+GET:  localhost:2003/cars/getAllAvailableCars
+
+eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNzUxNjQ3MzA4LCJleHAiOjE3NTE2NTA5MDh9.sHOxcbp8GGcPL8nOGV9Vknox0r-mf4eapV25emkY3Cg
+
+Token Needed Items:
+
+GET:  localhost:2003/admin/getAllUsers
+
+GET:  localhost:2003/admin/getAllBookings
+
+POST: localhost:2003/admin/createBooking
+
+GET:  localhost:2003/admin/getAllCars
+
+DELETE: localhost:2003/admin/deleteCar/1
+
+GET:  localhost:2003/admin/getUser/1
+
+PUT:  localhost:2003/admin/updateUser/1
+
+PUT:  localhost:2003/cars/updateAvailability/1?available=true
+
+POST: localhost:2003/cars/addCar
+
+{
+  "name": "Amal",
+  "email": "amal@example.com",
+  "password": "encodedPassword",
+  "roles": "CUSTOMER",
+  "active": true
+}
+
+PUT:  localhost:2003/admin/deactivateUser/3
+
+GET:  localhost:2003/admin/reports/summary
+
+Agent:
+
+localhost:2003/auth/generateToken
+
+
+{
+    "username":"eddy",
+    "password":"eddy123"
+}
+
+
+eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZGR5IiwiaWF0IjoxNzUxNjQyNjU0LCJleHAiOjE3NTE2NDYyNTR9.hqPLkpsn5nqYa8c3mlcVe1Lh1JIMrUXwftHqBcOxbUU
+
+
+PUT:  localhost:2003/agent/checkin/3
+
+PUT:  localhost:2003/agent/checkout/3
+
+Customer:
+
+
+{
+    "username":"amal",
+    "password":"amal123"
+}
+
+eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFsIiwiaWF0IjoxNzUxNjUxNzMxLCJleHAiOjE3NTE2NTUzMzF9.de6x_aGWjj7lFYLp2OVL6hloAgDLv4OPyE1sMhmrkTE
+
+POST:  localhost:2003/bookings/createBooking
+
+GET:  localhost:2003/bookings/getMyBookings
+
+PUT:  localhost:2003/bookings/cancelBooking/8
+
+PUT:  localhost:2003/bookings/updateBooking/4
+
+
+Cars:
+
+GET:  localhost:2003/cars/getCarsByLocation/Hyderabad
+
+
+FeedBack:
+
+POST:  localhost:2003/feedback/submitFeedback?carId=2
+
+GET:  localhost:2003/feedback/getFeedback/2
+
+
+Maintenance:
+
+POST:  localhost:2003/maintenance/reportIssue/1
+
+
+Payments:
+
+POST:  localhost:2003/payments/makePayment/6
+
+GET:  localhost:2003/payments/getAllPayments
+
+GET:  localhost:2003/payments/history/2
+
+GET:  localhost:2003/payments/pendingPayments/2
+
+
+Wallet:
+
+POST: localhost:2003/wallet/createWallet/2
+
+GET:  localhost:2003/wallet/getWalletBalance/2
+
+PUT:  localhost:2003/wallet/addFunds/2/5000
+
+PUT:  localhost:2003/wallet/deductFunds/2/500
+
+

@@ -1,0 +1,33 @@
+<div class="feedback-container">
+  <h2>Cars List</h2>
+
+  <p *ngIf="message" class="error">{{ message }}</p>
+
+  <table *ngIf="cars.length > 0; else noCars">
+    <thead>
+      <tr>
+        <th>Car ID</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Location</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.id }}</td>
+        <td>{{ car.make }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.location }}</td>
+        <td>
+         <button (click)="seeFeedback(car.id)">See Feedback</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noCars>
+    <p>No cars available.</p>
+  </ng-template>
+</div>

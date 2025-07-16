@@ -1,0 +1,26 @@
+<div class="agent-menu-container">
+  <h2><i class="fas fa-user-cog"></i> Agent Control Panel</h2>
+
+  <div class="menu-cards">
+    <a [routerLink]="['agentMenu/agentCars']" class="card">
+      <i class="fas fa-car"></i>
+      <span>Manage Cars</span>
+    </a>
+
+    <a [routerLink]="['agentMenu/AgentRequests']" class="card">
+      <i class="fas fa-tasks"></i>
+      <span>Agent Requests</span>
+    </a>
+
+    <a [routerLink]="['agentMenu/maintenanceRequests']" class="card">
+      <i class="fas fa-tools"></i>
+      <span>Maintenance Requests</span>
+    </a>
+  </div>
+
+  <button class="logout-button" (click)="logout()">
+    <i class="fas fa-sign-out-alt"></i> Logout
+  </button>
+
+  <router-outlet></router-outlet>
+</div>

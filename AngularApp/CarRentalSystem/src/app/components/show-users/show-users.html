@@ -1,0 +1,41 @@
+<div class="container">
+
+  <h2 class="page-title">👤 Users Overview</h2>
+
+  <div *ngIf="users?.length > 0" class="table-wrapper">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Roles</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users; let i = index">
+          <td>{{ u.uid }}</td>
+          <td>{{ u.name }}</td>
+          <td>{{ u.email }}</td>
+          <td class="password-cell">
+            <span>{{ showPassword[i] ? u.password : maskedPassword(u.password) }}</span>
+            <button (click)="togglePassword(i)" class="eye-btn">
+              {{ showPassword[i] ? '🙈' : '👁️' }}
+            </button>
+          </td>
+          <td>{{ u.roles }}</td>
+          <td>
+            <span [class.active]="u.active" [class.inactive]="!u.active">
+              {{ u.active ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p *ngIf="!users?.length" class="no-results">No users found.</p>
+
+</div>

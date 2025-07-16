@@ -1,0 +1,31 @@
+<div class="feedback-container">
+  <h2>Rate Your Ride</h2>
+
+  <form #form="ngForm" (ngSubmit)="submitFeedback(form)">
+    <label for="feedback">Feedback:</label>
+    <textarea
+      id="feedback"
+      name="feedback"
+      [(ngModel)]="feedbackText"
+      required
+      placeholder="Write your experience here..."
+    ></textarea>
+
+    <label>Rating:</label>
+    <div class="star-rating">
+      <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+        <i
+          class="star"
+          [class.filled]="star <= rating"
+          (click)="rating = star"
+          (mouseover)="hoveredRating = star"
+          (mouseleave)="hoveredRating = 0"
+        >&#9733;</i>
+      </ng-container>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+
+  <p class="message">{{ message }}</p>
+</div>
