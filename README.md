@@ -8,12 +8,11 @@ A full-stack bike taxi and car rental platform designed for efficient bookings, 
 
 | Layer         | Technology              |
 |---------------|--------------------------|
-| Frontend      | Angular 16, TypeScript, RxJS, Angular Forms |
+| Frontend      | Angular 16, TypeScript, Angular Forms |
 | Backend       | Spring Boot 3, Spring Security, Spring Data JPA |
-| Database      | H2 (dev), MySQL/PostgreSQL (prod-ready) |
+| Database      | H2 (dev), MySQL/(prod-ready) |
 | Authentication| JWT (JSON Web Token) |
-| Testing       | JUnit, Karma, Jasmine, Puppeteer |
-| API Docs      | Swagger / OpenAPI |
+| Testing       | JUnit |
 | UI Styling    | Custom CSS with Lavender-Purple Theme |
 
 ---
